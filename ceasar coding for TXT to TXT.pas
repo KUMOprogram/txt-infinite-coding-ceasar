@@ -96,8 +96,8 @@ BEGIN
   filename:='C:\ceasar.txt';
    assign(u,filename);
    reset(u);
-    for i:=1 to 1000 do
-     begin
+    i:=1;
+    repeat
       read(u,t);
       b[i]:=t;
        if b[i]='A' then
@@ -128,14 +128,10 @@ BEGIN
         a[i]:=char(ord(b[i])-1);
         epanalipseis:=epanalipseis+1;
        end;
-      end;
-     end;
+    i:=i+1;
+    until eof(u);
    close(u);
-     
-
-  for i:=1 to 1000 do
-  begin
-
+  
   write('UNCODE CEASAR: ');
   for i:=1 to epanalipseis do
   begin
